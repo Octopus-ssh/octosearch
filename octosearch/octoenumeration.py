@@ -2,6 +2,7 @@ def octoenumeration (url,wordlist) :
     import time 
     import threading as th
     import requests 
+    from math import modf
     url = url 
     file = open(wordlist,"r").readlines()
     print(f"\n[+] the enumeration is start !")
@@ -15,6 +16,11 @@ def octoenumeration (url,wordlist) :
     num_words = count 
     rest = num_words % 1000
     rest = rest + 1 
+    thread_n = count / 300
+    fraz = modf(thread_n)
+
+
+    print(f"\n[+] thread numbers we are using are {fraz[1]}")
 
     #temporary values
     start =  0
