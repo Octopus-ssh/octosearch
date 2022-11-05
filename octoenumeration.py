@@ -3,16 +3,15 @@ def octoenumeration (url,wordlist) :
     import threading as th
     import requests 
     from math import modf
+    # make a values for conditional
+    
     url = url 
     file = open(wordlist,"r").readlines()
-    print(f"\n[+] the enumeration is start !")
     count = 0 
     with open(wordlist, 'r') as fp:
         for count, line in enumerate(fp):
             pass
-    print(f'\n[+] Total Lines are', count + 1)
     
-    # make a values for conditional
     num_words = count 
     rest = num_words % 1000
     rest = rest + 1 
@@ -20,8 +19,22 @@ def octoenumeration (url,wordlist) :
     fraz = modf(thread_n)
 
 
-    print(f"\n[+] thread numbers we are using are {fraz[1]}")
+    print(f'''
+---------------------------setup-menù---------------------------
 
+    [+] Version => 1.2                                            
+    [+] url => {url}                                              
+    [+] wordlist => {wordlist}                                    
+    [+] thread => {fraz[1]}                                       
+    [+] length of wordlist => {count}       
+                          
+---------------------------------------------------------------
+
+
+
+
+''')
+    
     #temporary values
     start =  0
     end = 0
