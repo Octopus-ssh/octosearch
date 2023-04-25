@@ -6,10 +6,10 @@ def check_url(url, path):
     # give the reuqest and check the itself 
     request = requests.head(f"{url}/{path}")
     if request.status_code == 200:
-        print(f"[+] {url}/{path}")
+        print(f"[+] {request.status_code} ---> {url}/{path}")
 
 def enumeration(url, wordlist):
-    print("[+] enumeration is starting...")
+    print("[+] enumeration is starting...\n\n")
 
     # starting the enumeration and thread
     with open(wordlist, "r") as file:
