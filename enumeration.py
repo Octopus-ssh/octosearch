@@ -1,19 +1,20 @@
-# import diffrent library  
+# import the library
 import requests
-from multiprocessing.pool import ThreadPool
+import concurrent.futures
 
 def check_url(url, path):
-    # give the reuqest and check the itself 
+    # make the request
     request = requests.head(f"{url}/{path}")
+    # check the status request 
     if request.status_code == 200:
         print(f"[+] {request.status_code} ---> {url}/{path}")
 
 def enumeration(url, wordlist):
+    # enumeration 
     print("[+] enumeration is starting...\n\n")
-
-    # starting the enumeration and thread
+    # open the file and start threading
     with open(wordlist, "r") as file:
         paths = (line.strip() for line in file)
-
-        with ThreadPool() as pool:
-            pool.starmap(check_url, [(url, path) for path in paths])
+        with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+            for path in paths:
+                executor.submit(check_url, url, path)
