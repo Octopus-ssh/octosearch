@@ -1,33 +1,37 @@
+# this is the introduction to the tool
+
 print('''
-      
-        ___       _                                _     
-       / _ \  ___| |_ ___  ___  ___  __ _ _ __ ___| |__  
-      | | | |/ __| __/ _ \/ __|/ _ \/ _` | '__/ __| '_ \ 
-      | |_| | (__| || (_) \__ \  __/ (_| | | | (__| | | |
-       \___/ \___|\__\___/|___/\___|\__,_|_|  \___|_| |_|
-                                                         
-               |----------------------------------|
-               |-search hide directory web tool---|
-               |-----------by Octopus-------------|
-               |----------------------------------|
-      
-      
+
+          ___       _                                _     
+         / _ \  ___| |_ ___  ___  ___  __ _ _ __ ___| |__  
+        | | | |/ __| __/ _ \/ __|/ _ \/ _` | '__/ __| '_ \ 
+        | |_| | (__| || (_) \__ \  __/ (_| | | | (__| | | |
+         \___/ \___|\__\___/|___/\___|\__,_|_|  \___|_| |_|
+                      
+        |-------------------------------------------------|
+        | tool made by octopus to search for hidden pages |                              
+        |-------------------------------------------------|
+
+
 ''')
-# import the library and insert the values 
 
-import sys
+# import the library
 import requests
-import threading as th
+import sys
+from take_data import take_data
+from enumeration import enumeration
 
-url = sys.argv[1]
-wordlist = sys.argv[2]
 
-# import the code of other files 
+# here start main.... 
 
-# this file is use for check the connection of the website 
-import octocheckwebsite as control
-control.check(url)
+# take the url and wordlist
+url,wordlist = take_data()
 
-# this file is use for enumerate the website 
-import octoenumeration as enumeration
-enumeration.octoenumeration(url,wordlist)
+
+# start enumeration
+enumeration(url,wordlist)
+
+
+# end 
+
+print("\n\n[+] thanks for using my tool :))\n")
