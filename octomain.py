@@ -34,7 +34,7 @@ print(f'''
 
      url => {url}\n
      wordlist => {wordlist}\n
-     Version => 2.2\n
+     Version => 2.3\n
      Type => GET 
 
     ------------Octopus-ssh------------------
