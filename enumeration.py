@@ -1,5 +1,6 @@
 import requests
 import concurrent.futures
+from rich import print
 
 def check_url(url, path):
     try:
@@ -8,14 +9,14 @@ def check_url(url, path):
         # Check if the response status code is 200 or 301 OK
         if response.status_code == 200 or response.status_code == 301 :
             # Print a message indicating a successful request
-            print(f"[+] {url}/{path}")
+            print(f"[yellow][+] {url}/{path}")
     except (requests.exceptions.RequestException, requests.exceptions.Timeout):
         # Ignore any exceptions raised by the request
         pass
 
 # Function for enumeration
 def enumeration(url, wordlist):
-    print("[+] Enumeration is about to start...\n")
+    print("[bold green][+] Enumeration is about to start...\n")
 
     # Open the wordlist file with UTF-8 encoding, ignoring errors
     with open(wordlist, "r", encoding="utf-8", errors='ignore') as file:

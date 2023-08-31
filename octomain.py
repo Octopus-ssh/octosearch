@@ -1,6 +1,9 @@
 # this is the introduction to the tool
 
+from rich import print
+
 print('''
+[green]
 
   ___       _                                _     
  / _ \  ___| |_ ___  ___  ___  __ _ _ __ ___| |__  
@@ -28,7 +31,7 @@ url,wordlist = take_data()
 
 
 # print the attack settings
-print(f'''
+print(f''' [green]
     --------------settings-------------------
 
 
@@ -46,4 +49,4 @@ enumeration(url,wordlist)
 
 # end 
 
-print("\n\n[+] thanks for using my tool :))\n")
+print("\n\n[bold green][+] thanks for using my tool :))\n")
